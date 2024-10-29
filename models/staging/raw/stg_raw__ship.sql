@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{ source('gz_raw_data', 'raw_gz_ship') }}
+    select * from {{ source('raw', 'ship') }}
 
 ),
 
@@ -12,7 +12,7 @@ renamed as (
         orders_id,
         shipping_fee,
         logcost,
-        CAST (ship_cost AS FLOAT64) AS ship_cost
+        CAST (ship_cost AS FLOAT64) as ship_cost
 
     from source
 

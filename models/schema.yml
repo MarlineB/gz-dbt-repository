@@ -3,12 +3,12 @@
 version: 2
 
 sources:
-  - name: gz_raw_data
-    config:
-      alias: raw
+  - name: raw
+    schema: gz_raw_data
 
     tables: 
-      - name: raw_gz_product 
+      - name: product
+        identifier: raw_gz_product 
         description: Table Greenweez données brutes sur les id produits et purchase price
         columns: 
         - name: products_id
@@ -16,7 +16,8 @@ sources:
         config:
           alias: product 
 
-      - name: raw_gz_sales 
+      - name: sales
+        identifier: raw_gz_sales 
         description : tables greenweez sur les commandes, revenue et quantités vendues
         columns:
           - name: date_date
@@ -24,10 +25,9 @@ sources:
           - name: pdt_id
           - name: revenue 
           - name: quantity 
-        config:
-          alias: sales
 
-      - name : raw_gz_ship 
+      - name : ship
+        identifier: raw_gz_ship 
         description: Table de donnée Greenweez sur les shipping et livraison
         columns:
           - name: orders_id
@@ -35,6 +35,4 @@ sources:
           - name: shipping_fee_1
           - name: logCost
           - name: ship_cost
-        config:
-          alias: ship
 
