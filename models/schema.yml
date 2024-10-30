@@ -206,6 +206,15 @@ models:
         tests:
           - unique
           - not_null
+  
+  - name: finance_campaigns_day
+    description: ads margin calculation
+    columns: 
+      - name: date_date
+        description: Primary key.
+        tests: 
+          - unique
+          - not_null
 
 
 

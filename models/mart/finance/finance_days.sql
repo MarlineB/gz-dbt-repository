@@ -12,6 +12,7 @@
         SELECT date_date
         ,ROUND(SUM(margin),2) AS margin
         ,ROUND (SUM(operationnal_margin),2) AS operationnal_margin
+        ,SUM(quantity) AS quantity
         FROM {{ref("int_orders_operational")}}
         GROUP BY date_date
         ORDER BY date_date
