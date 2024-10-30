@@ -153,6 +153,60 @@ sources:
           - not_null:
               column_name: "(date_date || '-' || campaign_key)"
 
+models: 
+  - name: int_orders_margin
+    description: Orders margin details.
+    columns:
+      - name: orders_id
+        description: Primary key.
+        tests:
+          - unique
+          - not_null
+
+  - name: int_orders_operational
+    description: Orders operational margin details.
+    columns:
+      - name: orders_id
+        description: Primary key.
+        tests:
+          - unique
+          - not_null
+
+  - name: int_sales_margin
+    description: Sales margin details.
+    columns:
+      - name: orders_id
+        description: Identifiant de commande.
+        tests:
+          - not_null
+
+  - name: finance_days
+    description: Finance days info.
+    columns:
+      - name: date_date
+        description: Primary key.
+        tests:
+          - unique
+          - not_null
+
+  - name: int_campaigns
+    description: Union de toutes les sources
+    columns:
+      - name: "(date_date || '-' || campaign_key)"
+        description: Primary key.
+        tests:
+          - unique
+          - not_null
+
+  - name: int_campaigns_day
+    description: daily total sources.
+    columns:
+      - name: date_date
+        description: Primary key.
+        tests:
+          - unique
+          - not_null
+
 
 
 
