@@ -1,0 +1,68 @@
+#schema.yml 
+
+version: 2
+
+sources:
+  - name: raw
+    schema: gz_raw_data
+
+    tables: 
+      - name: product
+        identifier: raw_gz_product 
+        description: Table Greenweez données brutes sur les id produits et purchase price
+        columns: 
+        - name: products_id
+          description: id des produits 
+          tests:
+            - unique
+            - not_null
+        - name: purchSE_PRICE
+          description: prix du produit
+          
+
+      - name: sales
+        identifier: raw_gz_sales 
+        description : tables greenweez sur les commandes, revenue et quantités vendues
+        
+        # Freshness testing :
+        loaded_at_field: "CAST(date_date AS TIMESTAMP)"
+        freshness: 
+          warn_after:
+            count: 90
+            period: day
+        
+
+        columns:
+          - name: date_date
+            description: date de l'achat
+          - name:  orders_id
+            description: id de la commande
+          - name: pdt_id
+            description: id du produit
+          - name: revenue 
+            description: montant de la commande 
+          - name: quantity 
+            description: quantité de produits achetés 
+        tests:
+          #- unique:
+              #colunm_name: "(orders_id ||'-'|| pdt_id)"
+          - not_null:
+              column_name: "(orders_id ||'-'|| pdt_id)"
+
+      - name : ship
+        identifier: raw_gz_ship 
+        description: Table de donnée Greenweez sur les shipping et livraison
+        columns:
+          - name: orders_id
+            description: id de la commande
+            tests:
+            - unique
+            - not_null
+          - name: shipping_fee
+            description: frais d'expédition
+          - name: logCost
+            description: coût logistique 
+          - name: ship_cost
+            description: coût d'envoi
+
+
