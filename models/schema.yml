@@ -65,4 +65,74 @@ sources:
           - name: ship_cost
             description: coût d'envoi
 
+      - name: adwords
+        identifier: raw_gz_adwords 
+        description: Table données brutes campagnes Adwords
+        columns: 
+        - name: date_date
+          description: date 
+        - name: paid_source
+          description: source de données 
+        - name: campaign_key
+          description: id de la campagne 
+        - name: camPGN_name
+          description: nom de la campagne
+        - name: ads_cost
+          description: spend de la campagne
+        - name: impression
+          description: click 
+
+      - name: bing
+        identifier: raw_gz_bing 
+        description: Table données brutes campagnes Adwords
+        columns: 
+        - name: date_date
+          description: date 
+        - name: paid_source
+          description: source de données 
+        - name: campaign_key
+          description: id de la campagne 
+        - name: camPGN_name
+          description: nom de la campagne
+        - name: ads_cost
+          description: spend de la campagne
+        - name: impression
+          description: click 
+
+      - name: criteo
+        identifier: raw_gz_criteo
+        description: Table données brutes campagnes Adwords
+        columns: 
+        - name: date_date
+          description: date 
+        - name: paid_source
+          description: source de données 
+        - name: campaign_key
+          description: id de la campagne 
+        - name: camPGN_name
+          description: nom de la campagne
+        - name: ads_cost
+          description: spend de la campagne
+        - name: impression
+          description: click 
+    
+      - name: facebook
+        identifier: raw_gz_facebook
+        description: Table données brutes campagnes Adwords
+        columns: 
+        - name: date_date
+          description: date 
+        - name: paid_source
+          description: source de données 
+        - name: campaign_key
+          description: id de la campagne 
+        - name: camPGN_name
+          description: nom de la campagne
+        - name: ads_cost
+          description: spend de la campagne
+        - name: impression
+          description: click 
+
+
+
 
